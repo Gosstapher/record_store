@@ -26,21 +26,31 @@ describe('Record', function(){
 });
 
 describe('Record Store', function(){
-  it('should possible to create a Record Store with name', function(){
+  it('should be possible to create a Record Store with name', function(){
     var recordStore1 = new RecordStore('Unknown Pleasures', 'Edinburgh');
     assert.equal('Unknown Pleasures', recordStore1.name);
   });
-  it('should possible to create a Record Store with city', function(){
+  it('should be possible to create a Record Store with city', function(){
     var recordStore1 = new RecordStore('Unknown Pleasures', 'Edinburgh');
     assert.equal('Edinburgh', recordStore1.city);
   });
-  it('should possible to create a Record Store with an inventory', function(){
+  it('should be possible to create a Record Store with an inventory', function(){
     var recordStore1 = new RecordStore('Unknown Pleasures', 'Edinburgh');
     assert.deepEqual([], recordStore1.inventory);
   });
-  it('should possible to create a Record Store with a bank balance', function(){
+  it('should be possible to create a Record Store with a bank balance', function(){
     var recordStore1 = new RecordStore('Unknown Pleasures', 'Edinburgh');
     assert.equal(0, recordStore1.bankBalance);
+  });
+  it('should be possible to add records to a Record Store', function(){
+    var recordStore1 = new RecordStore('Unknown Pleasures', 'Edinburgh');
+    var record1 = new Record('Tom Jones', 'Praise and Blame', 4.99);
+    var record2 = new Record('Con Bro Chill', 'We Came to Party', 7.99);
+    var record3 = new Record('Zoë Keating', 'Into The Trees', 14.99);
+    recordStore1.addRecord(record1);
+    recordStore1.addRecord(record2);
+    recordStore1.addRecord(record3);
+    assert.equal(3, recordStore1.inventory.length);
   });
 });
 

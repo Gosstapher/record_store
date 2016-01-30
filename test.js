@@ -34,6 +34,10 @@ describe('Record Store', function(){
     var recordStore1 = new RecordStore('Unknown Pleasures', 'Edinburgh');
     assert.equal('Edinburgh', recordStore1.city);
   });
+  it('should possible to create a Record Store with an inventory', function(){
+    var recordStore1 = new RecordStore('Unknown Pleasures', 'Edinburgh');
+    assert.deepEqual([], recordStore1.inventory);
+  });
 });
 
 

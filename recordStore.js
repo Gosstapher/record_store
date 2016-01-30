@@ -44,6 +44,13 @@ RecordStore.prototype = {
     value += this.bankBalance;
     value += this.inventoryValue;
     this.currentValue = value;
+  },
+  displayValue: function(){
+    this.calculateInventoryValue();
+    this.calculateCurrentValue();
+    console.log("The current bank balance is : " + this.bankBalance);
+    console.log("The current value of the records in stock is : " + this.inventoryValue);
+    console.log("Thhe total store value is : " + this.currentValue);
   }
 };
 
@@ -55,9 +62,6 @@ recordStore1.addRecord(record1);
 recordStore1.addRecord(record2);
 recordStore1.addRecord(record3);
 recordStore1.sellRecord("Praise and Blame");
-console.log("after one sale bank balanve is : " + recordStore1.bankBalance);
-recordStore1.calculateInventoryValue();
-recordStore1.calculateCurrentValue();
-console.log("now it should be 27.97 : " + recordStore1.currentValue);
+recordStore1.displayValue();
 
 module.exports = RecordStore;

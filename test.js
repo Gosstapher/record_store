@@ -77,6 +77,19 @@ describe('Record Store', function(){
     recordStore1.sellRecord("Praise and Blame");
     assert.equal(4.99, recordStore1.bankBalance);
   });
+  it("should be possible for a record store to check it's current financial situation, both cash in bank and value of inventory", function(){
+    var recordStore1 = new RecordStore('Unknown Pleasures', 'Edinburgh');
+    var record1 = new Record('Tom Jones', 'Praise and Blame', 4.99);
+    var record2 = new Record('Con Bro Chill', 'We Came to Party', 7.99);
+    var record3 = new Record('Zoë Keating', 'Into The Trees', 14.99);
+    recordStore1.addRecord(record1);
+    recordStore1.addRecord(record2);
+    recordStore1.addRecord(record3);
+    recordStore1.sellRecord("Praise and Blame");
+    recordStore1.calculateInventoryValue();
+    recordStore1.calculateCurrentValue();
+    assert.equal(27.97, recordStore1.currentValue);
+  });
 });
 
 

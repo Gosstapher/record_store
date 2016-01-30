@@ -72,11 +72,14 @@ describe('Record Store', function(){
     var record1 = new Record('Tom Jones', 'Praise and Blame', 4.99);
     var record2 = new Record('Con Bro Chill', 'We Came to Party', 7.99);
     var record3 = new Record('Zoë Keating', 'Into The Trees', 14.99);
+    var record4 = new Record('Various Artists','Friends Original TV Soundtrack',4.38);
     recordStore1.addRecord(record1);
     recordStore1.addRecord(record2);
     recordStore1.addRecord(record3);
-    recordStore1.sellRecord("Praise and Blame");
-    assert.equal(4.99, recordStore1.bankBalance);
+    recordStore1.addRecord(record4);
+    var customer1 = new Customer('Rick');
+    recordStore1.sellRecord("Friends Original TV Soundtrack", customer1);
+    assert.equal(4.38, recordStore1.bankBalance);
   });
   // again I am usure how to test for a function that writes to console
   // the function this.displayValue works fine but untestable for now.
@@ -85,13 +88,16 @@ describe('Record Store', function(){
     var record1 = new Record('Tom Jones', 'Praise and Blame', 4.99);
     var record2 = new Record('Con Bro Chill', 'We Came to Party', 7.99);
     var record3 = new Record('Zoë Keating', 'Into The Trees', 14.99);
+    var record4 = new Record('Various Artists','Friends Original TV Soundtrack',4.38);
     recordStore1.addRecord(record1);
     recordStore1.addRecord(record2);
     recordStore1.addRecord(record3);
-    recordStore1.sellRecord("Praise and Blame");
+    recordStore1.addRecord(record4);
+    var customer1 = new Customer('Rick');
+    recordStore1.sellRecord("Friends Original TV Soundtrack", customer1);
     recordStore1.calculateInventoryValue();
     recordStore1.calculateCurrentValue();
-    assert.equal(27.97, recordStore1.currentValue);
+    assert.equal(32.35, recordStore1.currentValue);
   });
 });
 
@@ -103,6 +109,20 @@ describe("customer", function(){
     var customer1 = new Customer('Rick');
     var record4 = new Record('Various Artists','Friends Original TV Soundtrack',4.38);
     customer1.addRecord(record4);
+    assert.equal("Friends Original TV Soundtrack", customer1.inventory[0].title);
+  });
+  it("should be possible for a customer to buy a record from a store", function(){
+    var recordStore1 = new RecordStore('Unknown Pleasures', 'Edinburgh');
+    var record1 = new Record('Tom Jones', 'Praise and Blame', 4.99);
+    var record2 = new Record('Con Bro Chill', 'We Came to Party', 7.99);
+    var record3 = new Record('Zoë Keating', 'Into The Trees', 14.99);
+    var record4 = new Record('Various Artists','Friends Original TV Soundtrack',4.38);
+    recordStore1.addRecord(record1);
+    recordStore1.addRecord(record2);
+    recordStore1.addRecord(record3);
+    recordStore1.addRecord(record4);
+    var customer1 = new Customer('Rick');
+    recordStore1.sellRecord("Friends Original TV Soundtrack", customer1);
     assert.equal("Friends Original TV Soundtrack", customer1.inventory[0].title);
   });
 });

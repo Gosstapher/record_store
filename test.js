@@ -38,6 +38,10 @@ describe('Record Store', function(){
     var recordStore1 = new RecordStore('Unknown Pleasures', 'Edinburgh');
     assert.deepEqual([], recordStore1.inventory);
   });
+  it('should possible to create a Record Store with a bank balance', function(){
+    var recordStore1 = new RecordStore('Unknown Pleasures', 'Edinburgh');
+    assert.equal(0, recordStore1.bankBalance);
+  });
 });
 
 

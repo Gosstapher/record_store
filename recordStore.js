@@ -54,14 +54,14 @@ RecordStore.prototype = {
   }
 };
 
-var recordStore1 = new RecordStore('Unknown Pleasures', 'Edinburgh');
-var record1 = new Record('Tom Jones', 'Praise and Blame', 4.99);
-var record2 = new Record('Con Bro Chill', 'We Came to Party', 7.99);
-var record3 = new Record('Zoë Keating', 'Into The Trees', 14.99);
-recordStore1.addRecord(record1);
-recordStore1.addRecord(record2);
-recordStore1.addRecord(record3);
-recordStore1.sellRecord("Praise and Blame");
-recordStore1.displayValue();
+// var recordStore1 = new RecordStore('Unknown Pleasures', 'Edinburgh');
+// var record1 = new Record('Tom Jones', 'Praise and Blame', 4.99);
+// var record2 = new Record('Con Bro Chill', 'We Came to Party', 7.99);
+// var record3 = new Record('Zoë Keating', 'Into The Trees', 14.99);
+// recordStore1.addRecord(record1);
+// recordStore1.addRecord(record2);
+// recordStore1.addRecord(record3);
+// recordStore1.sellRecord("Praise and Blame");
+// recordStore1.displayValue();
 
 module.exports = RecordStore;

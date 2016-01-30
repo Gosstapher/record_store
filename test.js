@@ -74,7 +74,7 @@ describe('Record Store', function(){
     recordStore1.addRecord(record1);
     recordStore1.addRecord(record2);
     recordStore1.addRecord(record3);
-    recordStore1.sellRecord(record1);
+    recordStore1.sellRecord("Praise and Blame");
     assert.equal(4.99, recordStore1.bankBalance);
   });
 });

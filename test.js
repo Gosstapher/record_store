@@ -1,5 +1,6 @@
 var assert = require ('assert');
 var Record = require ('./record');
+var RecordStore = require ('./recordStore');
 
 describe('Record', function(){
   it('should be possible to create a record with an artist', function(){
@@ -22,6 +23,17 @@ describe('Record', function(){
     assert.equal('Con Bro Chill', record2.artist);
     assert.equal('Zoë Keating', record3.artist);
     });
+});
+
+describe('Record Store', function(){
+  it('should possible to create a Record Store with name', function(){
+    var recordStore1 = new RecordStore('Unknown Pleasures', 'Edinburgh');
+    assert.equal('Unknown Pleasures', recordStore1.name);
+  });
+  it('should possible to create a Record Store with city', function(){
+    var recordStore1 = new RecordStore('Unknown Pleasures', 'Edinburgh');
+    assert.equal('Edinburgh', recordStore1.city);
+  });
 });
 
 

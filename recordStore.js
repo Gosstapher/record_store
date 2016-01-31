@@ -33,6 +33,18 @@ RecordStore.prototype = {
     customer.inventory.push(sold[0]);
     this.bankBalance += sale;
   },
+  buyRecord: function(recordTitle, customer){
+    for(record of customer.inventory){
+      if(record.title === recordTitle){
+        var sale = record.price;
+        var bought = _.remove(customer.inventory, {
+          title: recordTitle
+        });
+      }
+    }
+    this.inventory.push(bought[0]);
+    this.bankBalance -= sale;
+  },
   calculateInventoryValue: function(){
     var stockValue = 0;
     for(record of this.inventory){
